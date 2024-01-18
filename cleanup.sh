@@ -7,13 +7,24 @@ if [ -z "$1" ]; then
 fi
 
 sitename="$1"
-directory="/var/www/$sitename"
+nginx_sites_available="/etc/nginx/sites-available"
+nginx_sites_enabled="/etc/nginx/sites-enabled"
+web_directory="/var/www/$sitename"
 
-# Remove the directory and its contents twice
-echo "Removing $directory and its contents..."
-rm -rf "$directory"
+# Remove Nginx configuration file from sites-available
+echo "Removing Nginx configuration file from sites-available: $sitename"
+rm -f "$nginx_sites_available/$sitename"
 
-echo "Removing $directory again..."
-rm -rf "$directory"
+# Remove symbolic link from sites-enabled
+echo "Removing symbolic link from sites-enabled: $sitename"
+rm -f "$nginx_sites_enabled/$sitename"
+
+# Restart Nginx to apply changes
+echo "Restarting Nginx..."
+service nginx restart
+
+# Remove web directory
+echo "Removing web directory: $web_directory"
+rm -rf "$web_directory"
 
 echo "Cleanup complete for $sitename"
