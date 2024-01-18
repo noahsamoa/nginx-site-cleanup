@@ -1,6 +1,6 @@
 # Nginx Site Cleanup Script
 
-This bash script is designed to remove a specified site from both Nginx sites-available and sites-enabled, and then delete the corresponding directory from /var/www.
+This bash script is designed to remove a specified site from both Nginx sites-available and sites-enabled, and then delete the corresponding directory from /var/www
 
 ## Usage
 
