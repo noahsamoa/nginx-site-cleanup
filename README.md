@@ -22,6 +22,3 @@ This bash script is designed to remove a specified site from both Nginx sites-av
 ## Caution
 This script will remove Nginx configuration files from both sites-available and sites-enabled, restart Nginx to apply changes, and then delete the corresponding web directory.
 Always double-check your sitename before running the script to avoid unintentional data loss.
-
-## License
-This script is licensed under the MIT License.
